@@ -1,6 +1,7 @@
 let layer = layui.layer;
 let form = layui.form;
 
+
 // ------------------------------------------切换
 // 去注册
 $("#goto-register").on("click", function() {
@@ -13,12 +14,15 @@ $("#goto-login").on("click", function() {
   $("#register").hide();
 });
 
+
+
+
+
 // -----------------------------------------验证
 // 需求：
 //    1. 用户名、密码、重复密码不能为空  
 //    2. 密码、重复密码   长度 6~12 位，且不能出现空格：   非空格类字符；\S
 //    3. 密码 和 重复密码 必须一致 
-
 
 form.verify({
   // 长度 6~12 位，且不能出现空格
@@ -46,6 +50,7 @@ form.verify({
 });
 
 
+
 // -------------------------------------------注册
 // html：form表单！按钮/表单元素 name属性和参数名一致！
 // JS ：收集数据！$.ajax()
@@ -58,7 +63,7 @@ $("#register form").on("submit", function(e) {
 
   // 2.提交数据
   $.ajax({
-    url: "http://ajax.frontend.itheima.net/api/reguser",
+    url: "/api/reguser",
     type: "POST",
     data: data,
     success: function(res) {
@@ -72,11 +77,17 @@ $("#register form").on("submit", function(e) {
         $("#register form")[0].reset();
       }
 
+
     }
   })
 
+
+
 });
 
+
+
+// -------------------------------------------登录
 $("#login form").on("submit", function(e) {
   e.preventDefault();
 
@@ -86,7 +97,7 @@ $("#login form").on("submit", function(e) {
 
   // 2.提交数据
   $.ajax({
-    url: "http://ajax.frontend.itheima.net/api/login",
+    url: "/api/login",
     type: "POST",
     data: data,
     success: function(res) {
