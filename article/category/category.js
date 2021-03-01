@@ -103,3 +103,7 @@ function addSub(numb) {
 
   });
 }
+
+$('tbody').on('click','.btnDelete',function(e){
+    console.log(e);
+})
